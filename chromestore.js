@@ -484,10 +484,12 @@ var DataReceiver = (function() {
                 if(this.status == 200) {
                     callback(this.response);
                 }
-            }
+            };
 
             xhr.send();
         }
     }
 
 });
+
+exports.ChromeStore = ChromeStore;

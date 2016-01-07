@@ -12,6 +12,24 @@ The API provides an easy to use interface for:
 - Writing large amounts of data obtained from an ajax call to a file
 - Getting used and remaining bytes of the filesystem
 
+## Install
+
+Install via npm:
+
+```sh
+npm install chromestore.js
+```
+
+Then include it in a project:
+
+```javascript
+var cs = require('chromestore.js').ChromeStore([
+	{path: 'images/png'}
+]);
+```
+
+Otherwise, simply copy chromestore.js into your project.
+
 ## Creating and Initializing Chromestore
 
 In order to use chromestore, it must be instantiated and initialized.

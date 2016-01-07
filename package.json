@@ -1,0 +1,26 @@
+{
+  "name": "chromestore.js",
+  "version": "0.0.2",
+  "description": "Chromestore.js is a simple javascript filesystem API for the Chrome browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylerjvick/chromestore.js.git"
+  },
+  "keywords": [
+    "chromestore",
+    "chrome",
+    "navigator",
+    "FileSystem",
+    "HTML5"
+  ],
+  "author": "Tyler Vick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylerjvick/chromestore.js/issues"
+  },
+  "homepage": "https://github.com/tylerjvick/chromestore.js#readme"
+}
