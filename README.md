@@ -265,12 +265,13 @@ cs.getAndWrite(url, 'video.mp4', 'video/mp4', {create: true}, function(){
 # Contributions
 Contributions welcome!! :smile:
 
-1. Fork it ( https://github.com/summera/chromestore.js )
+1. Fork it ( https://github.com/tylerjvick/chromestore.js )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
 5. Create a new Pull Request
 
 # Sources
+Forked from [Summera](https://github.com/summera) at (https://github.com/summera/chromestore.js)
 http://www.html5rocks.com/en/tutorials/file/filesystem/
 http://www.w3.org/TR/file-system-api/
