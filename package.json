@@ -1,6 +1,6 @@
 {
   "name": "chromestore.js",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Chromestore.js is a simple javascript filesystem API for the Chrome browser.",
   "main": "index.js",
   "scripts": {
