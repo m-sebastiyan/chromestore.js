@@ -9,7 +9,7 @@
                 {path: 'path string', callback: callback function}]
 
 */
-var ChromeStore = (function(fileSchema, options) {
+export const ChromeStore = (function(fileSchema, options) {
     fileSchema = typeof fileSchema !== 'undefined' ? fileSchema : [];
 
     if (options !== undefined && options.silentMode == true) {
@@ -208,10 +208,10 @@ var ChromeStore = (function(fileSchema, options) {
             exclusive   [boolean]: true will throw an error if file already exists, false will overwrite contents
             callback    [function]: function to be executed when file is created. passed the FileEntry object
         */
-        getFile: function(path, flags, callback) {
+        getFile: function(path, flags, callback, errorCallback) {
             fs.root.getFile(path, flags, function(fileEntry) {
                 if(callback) {callback(fileEntry);}
-            }, errorHandler);
+            }, errorCallback);
         },
 
         /*
@@ -496,5 +496,3 @@ var DataReceiver = (function() {
     }
 
 });
-
-exports.ChromeStore = ChromeStore;
