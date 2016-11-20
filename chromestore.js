@@ -9,8 +9,8 @@
                 {path: 'path string', callback: callback function}]
 
 */
-var cloneConsole = function() {
-    var that = window.console.log;
+Function.prototype.clone = function() {
+    var that = this;
     var temp = function temporary() { return that.apply(this, arguments); };
     for(var key in this) {
         if (this.hasOwnProperty(key)) {
@@ -23,7 +23,7 @@ var cloneConsole = function() {
 var ChromeStore = (function(fileSchema, options) {
     fileSchema = typeof fileSchema !== 'undefined' ? fileSchema : [];
     var console = {
-        log: cloneConsole()
+        log: window.console.log.clone()
     };
 
     if (options !== undefined && options.silentMode == true) {
