@@ -9,8 +9,22 @@
                 {path: 'path string', callback: callback function}]
 
 */
+var cloneConsole = function() {
+    var that = window.console.log;
+    var temp = function temporary() { return that.apply(this, arguments); };
+    for(var key in this) {
+        if (this.hasOwnProperty(key)) {
+            temp[key] = this[key];
+        }
+    }
+    return temp;
+};
+
 var ChromeStore = (function(fileSchema, options) {
     fileSchema = typeof fileSchema !== 'undefined' ? fileSchema : [];
+    var console = {
+        log: cloneConsole()
+    };
 
     if (options !== undefined && options.silentMode == true) {
         console.log = function() {};
