@@ -9,7 +9,7 @@
                 {path: 'path string', callback: callback function}]
 
 */
-export const ChromeStore = (function(fileSchema, options) {
+var ChromeStore = (function(fileSchema, options) {
     fileSchema = typeof fileSchema !== 'undefined' ? fileSchema : [];
 
     if (options !== undefined && options.silentMode == true) {
@@ -496,3 +496,5 @@ var DataReceiver = (function() {
     }
 
 });
+
+exports.ChromeStore = ChromeStore;
