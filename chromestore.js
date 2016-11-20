@@ -9,8 +9,13 @@
                 {path: 'path string', callback: callback function}]
 
 */
-var ChromeStore = (function(fileSchema) {
+var ChromeStore = (function(fileSchema, options) {
     fileSchema = typeof fileSchema !== 'undefined' ? fileSchema : [];
+
+    if (options !== undefined && options.silentMode == true) {
+        console.log = function() {};
+    }
+
     var fs = null;
 
     function errorHandler(DOMError) {

@@ -19,7 +19,7 @@ $(function(){
         $("video").attr("src", fileEntry.toURL());
     }
 
-    var cs = new ChromeStore([ {path: 'videos/clips'}, {path: 'audio/wav', callback: function(){console.log('finished creating audio structure')}} ]);
+    var cs = new ChromeStore([ {path: 'videos/clips'}, {path: 'audio/wav', callback: function(){console.log('finished creating audio structure')}} ], {silentMode: true});
     cs.init(1024*1024*1024);
 
 
