@@ -62,7 +62,7 @@ var ChromeStore = (function(fileSchema, options) {
 
         /*
             Initialize chromestore
-            Request persistent filesystem and amount of bytes
+            Request temporary filesystem and amount of bytes
             Create initial fileSchema if there is one
 
             requestedBytes  [int]: requested size of storage in bytes
@@ -86,7 +86,7 @@ var ChromeStore = (function(fileSchema, options) {
             }
 
             function requestFS(grantedBytes) {
-                window.webkitRequestFileSystem(window.PERSISTENT, grantedBytes, function(filesystem) {
+                window.webkitRequestFileSystem(window.TEMPORARY, grantedBytes, function(filesystem) {
                     fs = filesystem;
                     console.log ('fs: ', arguments); // I see this on Chrome 27 in Ubuntu
                     console.log("Granted Bytes: " + grantedBytes);
@@ -100,9 +100,9 @@ var ChromeStore = (function(fileSchema, options) {
             }
 
             function getGranted(requestedBytes){
-                navigator.webkitPersistentStorage.requestQuota (requestedBytes, function(grantedBytes) {
+                navigator.webkitTemporaryStorage.requestQuota (requestedBytes, function(grantedBytes) {
                     console.log("==================================");
-                    console.log("PERSISTENT STORAGE");
+                    console.log("TEMPORARY STORAGE");
                     console.log("==================================");
                     console.log("**********************************");
                     console.log ('requestQuota: ', arguments);
@@ -282,7 +282,7 @@ var ChromeStore = (function(fileSchema, options) {
                                     from filesystem.  passed the number of used and remaining bytes
         */
         usedAndRemaining: function(callback) {
-            navigator.webkitPersistentStorage.queryUsageAndQuota(function (used, remaining){
+            navigator.webkitTemporaryStorage.queryUsageAndQuota(function (used, remaining){
                 if(callback){callback(used, remaining);}
             });
         },
@@ -332,7 +332,7 @@ var ChromeStore = (function(fileSchema, options) {
         },
 
         /*
-            Get data from a URL and store it in local persistent storage
+            Get data from a URL and store it in local temporary storage
             Calls getData and write in sequence
 
             url         [string]: URL path of the file to be downloaded
@@ -349,7 +349,7 @@ var ChromeStore = (function(fileSchema, options) {
         },
 
         /*
-            Delete all files and directories that already exists in local persistent storage
+            Delete all files and directories that already exists in local temporary storage
         */
         purge: function() {
             var dirReader = fs.root.createReader();
@@ -459,7 +459,7 @@ var FileWriter = (function(filesystem) {
                 fileEntry.createWriter(function(fileWriter) {
 
                     fileWriter.onwriteend = function(e) {
-                        console.log('Write completed.');
+                        // console.log('Write completed.');
                         if(callback) {callback(fileEntry);}
                     };
 

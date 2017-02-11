@@ -2,7 +2,7 @@ chromestore.js
 =============
 Chromestore.js is a simple javascript filesystem API for the Chrome browser.
 
-It provides support for persistent file storage in the browser.
+It provides support for temporary file storage in the browser.
 
 The API provides an easy to use interface for:
 - Creating files and directories
@@ -65,7 +65,7 @@ cs.init(1024*1024, function(cstore){
 ## Querying for Used and Remaining Bytes
 In order to ask for the number of used and remaining bytes
 in chromestore, call `#usedAndRemaining`. This will also
-tell you whether persistent storage. If not available,
+tell you whether temporary storage. If not available,
 `remaining` will be 0.
 
 ``` javascript
