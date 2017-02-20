@@ -326,9 +326,9 @@ var ChromeStore = (function(fileSchema, options) {
             url         [string]: URL path of the file to be downloaded
             callback    [function]: function to be executed when file has finished downloading
         */
-        getData: function(url, callback) {
+        getData: function(url, callback, errorCallback) {
             var receiver = this.createReceiver();
-            receiver.getData(url, callback);
+            receiver.getData(url, callback, errorCallback);
         },
 
         /*
