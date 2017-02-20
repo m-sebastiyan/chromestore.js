@@ -341,11 +341,11 @@ var ChromeStore = (function(fileSchema, options) {
             createFlag  [boolean]: create new file
             callback    [function]: function to be executed when file has been written
         */
-        getAndWrite: function(url, path, fileType, flags, callback) {
+        getAndWrite: function(url, path, fileType, flags, callback, errorCallback) {
             var that = this;
             this.getData(url, function(data){
                 that.write(path, fileType, data, flags, callback)
-            });
+            }, errorCallback);
         },
 
         /*
@@ -494,7 +494,7 @@ var DataReceiver = (function() {
             url         [string]: URL path of the file to be downloaded
             callback    [function]: function to be executed when file has finished downloading
         */
-        getData: function(url, callback){
+        getData: function(url, callback, errorCallback){
             var xhr = new XMLHttpRequest(); 
             xhr.open('GET', url, true); 
             xhr.responseType = "arraybuffer";
@@ -502,6 +502,8 @@ var DataReceiver = (function() {
             xhr.onload = function(e) {
                 if(this.status == 200) {
                     callback(this.response);
+                } else {
+                    errorCallback(this);
                 }
             };
 
