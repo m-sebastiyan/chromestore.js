@@ -507,6 +507,10 @@ var DataReceiver = (function() {
                 }
             };
 
+            xhr.onerror = function (e) {
+                errorCallback(e);
+            }
+
             xhr.send();
         }
     }
