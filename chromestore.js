@@ -496,7 +496,7 @@ var DataReceiver = (function() {
         */
         getData: function(url, callback, errorCallback){
             var xhr = new XMLHttpRequest(); 
-            xhr.open('GET', url, true); 
+            xhr.open('GET', url + "?_=" + new Date().getTime(), true); 
             xhr.responseType = "arraybuffer";
 
             xhr.onload = function(e) {
